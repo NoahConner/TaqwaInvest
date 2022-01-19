@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="297.264" height="297.264" viewBox="0 0 297.264 297.264">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#e8e8e8"/>
+    </radialGradient>
+    <filter id="Ellipse_116" x="34.133" y="37.132" width="229" height="229" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#cfcfcf" flood-opacity="0.42"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_116-2" x="34.133" y="37.132" width="229" height="229" filterUnits="userSpaceOnUse">
+      <feOffset dx="4" dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5.5" result="blur-2"/>
+      <feFlood flood-color="#fff" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur-2"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="meter" transform="translate(-16743.867 1063.132)">
+    <g data-type="innerShadowGroup">
+      <g transform="matrix(1, 0, 0, 1, 16743.87, -1063.13)" filter="url(#Ellipse_116)">
+        <circle id="Ellipse_116-3" data-name="Ellipse 116" cx="105.5" cy="105.5" r="105.5" transform="translate(43.13 43.13)" opacity="0.22" fill="url(#radial-gradient)"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 16743.87, -1063.13)" filter="url(#Ellipse_116-2)">
+        <circle id="Ellipse_116-4" data-name="Ellipse 116" cx="105.5" cy="105.5" r="105.5" transform="translate(43.13 43.13)" fill="#fff" opacity="0.22"/>
+      </g>
+    </g>
+    <g id="Ellipse_118" data-name="Ellipse 118" transform="translate(16879.496 -765.868) rotate(-130)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_119" data-name="Ellipse 119" transform="matrix(-0.174, -0.985, 0.985, -0.174, 16806.922, -792.283)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_120" data-name="Ellipse 120" transform="translate(16757.277 -851.446) rotate(-70)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_121" data-name="Ellipse 121" transform="translate(16743.867 -927.504) rotate(-40)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_122" data-name="Ellipse 122" transform="matrix(0.985, -0.174, 0.174, 0.985, 16770.281, -1000.077)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_123" data-name="Ellipse 123" transform="translate(16829.443 -1049.721) rotate(20)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_124" data-name="Ellipse 124" transform="translate(16905.502 -1063.132) rotate(50)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="Ellipse_125" data-name="Ellipse 125" transform="matrix(0.174, 0.985, -0.985, 0.174, 16978.076, -1036.717)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+    <g id="meter-2" data-name="meter" transform="matrix(-0.087, 0.996, -0.996, -0.087, 17006.793, -1010.404)" fill="none" stroke="#2d2a6c" stroke-linecap="round" stroke-width="11" stroke-dasharray="70 1000">
+      <circle cx="105.5" cy="105.5" r="105.5" stroke="none"/>
+      <circle cx="105.5" cy="105.5" r="100" fill="none"/>
+    </g>
+  </g>
+</svg>
