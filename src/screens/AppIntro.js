@@ -196,7 +196,7 @@ const AppIntro = ({navigation}) => {
   useEffect(() => {
     var heightVar = (windowHeight * imgH) / 110;
     Animated.timing(btmMrg, {
-      toValue: moderateScale(50),
+      toValue: moderateScale(120,0.1),
       duration: 2500
     }).start();
     Animated.timing(imgHe, {
@@ -213,27 +213,6 @@ const AppIntro = ({navigation}) => {
     setTimeout(() => {
       setShowView(true);
     }, 2500);
-    // setTimeout(() => {
-    //   var interval = setInterval(() => {
-    //     imgH = imgH + 2.0;
-    //     imgHvar = imgHvar - 4.0;
-    //     imgWvar = imgWvar - 6.5;
-    //     var heightVar = (windowHeight * imgH) / 110;
-    //     if (imgWvar > 117) {
-    //       setImgW(imgWvar);
-    //     }
-    //     if (imgHvar > 93) {
-    //       setImgHe(imgHvar);
-    //     }
-    //     if (imgH < 80) {
-    //       setBtmMrg(heightVar);
-    //     } else {
-    //       setShowView(true);
-    //       setBtmMrg(500);
-    //       clearInterval(interval);
-    //     }
-    //   }, 1);
-    // }, 800);
     const backAction = () => {
       imgH = 100;
       imgHvar = 218;
@@ -315,11 +294,8 @@ const AppIntro = ({navigation}) => {
           (item.key == 2 && (
             <View
               style={{
-                marginTop: -150,
-                marginBottom: -60,
-                marginLeft: 0,
-                tintColor: '#2D2D62',
-                position: 'relative'
+                position: 'absolute',
+                top:moderateScale(150,0.1)
               }}
             >
               {/* <ArrowBoardImage /> */}
@@ -332,9 +308,11 @@ const AppIntro = ({navigation}) => {
           (item.key == 3 && (
             <View
               style={{
-                marginBottom: -40,
-                marginTop: -150,
-                tintColor: '#B38748',
+                // marginBottom: -40,
+                // marginTop: -150,
+                // tintColor: '#B38748',
+                position: 'absolute',
+                top:moderateScale(80,0.1)
               }}
             >
               {/* <FinanveImage /> */}
@@ -347,7 +325,7 @@ const AppIntro = ({navigation}) => {
         {showView == true ? (
           <View
             style={{
-              marginTop: 100,
+              marginTop: moderateScale(200,0.1),
               //   height: '47%',
               width: windowWidth,
               alignItems: 'center',
