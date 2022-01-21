@@ -183,7 +183,7 @@ export default StyleSheet.create({
     portCon:{
         // width: moderateScale(ScreenHeight- 60),
         // backgroundColor:'#000'
-        marginTop:moderateScale(80,0.1)
+        marginTop:'20%'
     },
     capital:{
         textTransform:'capitalize'

@@ -3,6 +3,8 @@ import { Text, View, TextInput, StyleSheet, TouchableOpacity, Image, Dimensions,
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import Pie from 'react-native-pie';
+import s from '../style/style';
+
 import {
     LineChart,
     BarChart,
@@ -13,10 +15,6 @@ import {
 } from "react-native-chart-kit";
 const screenWidth = Dimensions.get("window").width;
 
-const data = {
-    labels: ["Swim", "Bike", "Run"], // optional
-    data: [0.4, 0.6, 0.8]
-};
 
 const AddFunds2 = ({ route, navigation }) => {
     const {
@@ -68,9 +66,9 @@ const AddFunds2 = ({ route, navigation }) => {
     }
 
     // each value represents a goal ring in Progress chart
-    const dataPie = {
-        labels: ["Swim", "Bike", "Run"], // optional
-        data: [0.4, 0.6, 0.8]
+    const data = {
+        labels: ["Swim", "Bike", "Run", "Run", "Run"], // optional
+        data: [0.4, 0.6, 0.8, 0.3, 0.4]
     };
     return (
         <View style={styles.container} >
@@ -105,7 +103,6 @@ const AddFunds2 = ({ route, navigation }) => {
                     borderColor: '#BC982A',
                     marginTop: 30, elevation: 3, borderWidth: 1
                 }} >
-
                     <View style={styles.infoContainer} >
                         <Text style={styles.infoText} >
                             Name Portfolio:
@@ -134,20 +131,20 @@ const AddFunds2 = ({ route, navigation }) => {
                 <View>
                     <View style={{ width: '90%', alignSelf: 'center' }} >
                         {/* <ScrollView> */}
-                        <View style={{ width: '49%', borderRadius: 20, alignItems: 'center',justifyContent:'center' }} >
+                        <View style={{ width: '100%', borderRadius: 20, alignItems: 'center',justifyContent:'center' }} >
                             <ProgressChart
                                 data={data}
                                 width={screenWidth}
                                 height={220}
-                                strokeWidth={16}
-                                radius={32}
+                                strokeWidth={10}
+                                radius={42}
                                 chartConfig={{
                                     backgroundColor: 'white',
                                     backgroundGradientFrom: '#fff',
                                     backgroundGradientTo: '#fff',
                                     decimalPlaces: 2, // optional, defaults to 2dp
                                     color: (opacity = 1) => `rgb(45, 45, 98,${opacity})`,
-                                    labelColor: (opacity = 1) => `rgb(45, 45, 98, ${opacity})`,
+                                    // labelColor: (opacity = 1) => `rgb(45, 45, 98, ${opacity})`,
                                     style: {
                                       borderRadius: 16,
                                     },
@@ -157,38 +154,11 @@ const AddFunds2 = ({ route, navigation }) => {
                                       stroke: 'white',
                                     },
                                   }}
-                                hideLegend={false}
+                                hideLegend={true}
                             />
-                            {/* <Pie
-                                radius={80}
-                                innerRadius={60}
-                                sections={[
-                                    {
-                                        percentage: globalStockPercent,
-                                        color: '#EDB462',
-                                    },
-                                    {
-                                        percentage: emergingStockPercent,
-                                        color: '#CE7672',
-                                    },
-                                    {
-                                        percentage: sukukPercent,
-                                        color: '#544767',
-                                    },
-                                    {
-                                        percentage: greenSukukPercent,
-                                        color: '#DC8565',
-                                    },
-                                    {
-                                        percentage: commoditiesPercent,
-                                        color: '#138085',
-                                    },
-                                ]} dividerSize={4}
-                                strokeCap={'round'}
-                            /> */}
                         </View>
 
-                        <View style={{ width: '100%', height: 250, marginTop: 30, flexDirection: 'column', alignSelf: 'center' }} >
+                        <View style={{ width: '100%',  marginTop: 30, flexDirection: 'column', alignSelf: 'center' }} >
                             <View style={styles.stocksContainer} >
                                 <View style={styles.stockName} >
                                     <Text style={{ fontSize: 15, fontFamily: 'OpenSans-Regular', color: '#EDB462' }} >
@@ -277,18 +247,12 @@ const AddFunds2 = ({ route, navigation }) => {
                         </View>
                     </View>
                 </View>
-            </ScrollView>
-            <View style={{ width: '100%', height: 40, position: 'absolute', bottom: 0, justifyContent: 'center' }} >
-                <TouchableOpacity
-                    onPress={() =>
-                        pushingData()}
-                >
-                    <Image source={require('../Assets/buttom.png')} style={{ width: 113, height: 36, alignSelf: 'center' }} />
-                    {/* <Text style={{ fontSize: 20, fontFamily: 'OpenSans-Bold', color: '#fff', textAlign: 'center' }} >
-                        Continue
-                    </Text> */}
+                <View style={{marginBottom:40}}>
+                <TouchableOpacity style={s.buttonB} onPress={() => pushingData()}>
+                    <Text style={s.buttonT}>Continue</Text>              
                 </TouchableOpacity>
-            </View>
+                </View>
+            </ScrollView>
         </View>
     )
 }

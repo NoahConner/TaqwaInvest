@@ -17,7 +17,8 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import s from '../style/style';
-import AppContext from '../components/Appcontext/contextApi'
+import AppContext from '../components/Appcontext/contextApi';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 global.password = '';
 global.Fname = '';
@@ -72,14 +73,14 @@ const SignIn = ({ navigation }) => {
           global.user_id = responseJson[0].user_id;
           setProps(false);
           // console.log(responseJson[0].user_id)
-          check_basic_info(responseJson[0].user_id);
+          check_basic_info(responseJson[0].user_id,responseJson[0]);
         }
       })
       .catch(err => {
         console.error(err);
       });
   };
-  const check_basic_info = us_id => {
+  const check_basic_info = (us_id,data) => {
     fetch(
       'https://prepaired.onewoodsolutions.com/prepairedtwo/' + 'info_Check',
       {
@@ -98,6 +99,11 @@ const SignIn = ({ navigation }) => {
         console.log('responseJson');
         console.log(responseJson);
         if (responseJson == true) {
+          try {
+            AsyncStorage.setItem('auth_token', data)
+          } catch (e) {
+            // saving error
+          }
           setProps(false);
           AppContexte.setuserToken('null')
           setTimeout(() => {
@@ -146,7 +152,7 @@ const SignIn = ({ navigation }) => {
         /> */}
 
         <View style={{ position: 'relative',width:ScreenWidth,alignItems:'center',overflow:'hidden', minHeight:moderateScale(ScreenHeight-120)}}>
-          <View style={{position:'absolute',top:moderateScale(20,0.1)}}>
+          <View style={{position:'absolute',top:'8%'}}>
             <Image
               source={require('../Assets/Taqwafinallogo.png')}
               style={styles.signInLogo}
@@ -254,51 +260,6 @@ const SignIn = ({ navigation }) => {
                 </Text>
               </TouchableOpacity>
             </View>
-
-            {/* <View style={{ width: '50%', alignSelf: 'center' }}>
-              <TouchableOpacity
-                onPress={() => SignInNow()}
-                style={{
-                  padding: 5,
-                  borderRadius: 25,
-                  width: '100%',
-                  marginTop: 70,
-                  alignSelf: 'center',
-                  backgroundColor: '#2D2D62',
-                  flexDirection: 'row',
-                }}>
-                <Text
-                  style={{
-                    textAlign: 'center',
-                    fontSize: 17,
-                    left: 15,
-                    fontFamily: 'OpenSans-Bold',
-                    color: 'white',
-                  }}>
-                  Log in
-                </Text>
-                <View
-                  style={{
-                    width: '35%',
-                    height: '180%',
-                    borderColor: '#2D2D62',
-                    justifyContent: 'center',
-                    borderWidth: 1,
-                    backgroundColor: 'white',
-                    position: 'absolute',
-                    right: 0,
-                    top: -5,
-                    borderRadius: 50,
-                  }}>
-                  <AntDesign
-                    name="right"
-                    color="#2D2D62"
-                    style={{ alignSelf: 'center' }}
-                    size={24}
-                  />
-                </View>
-              </TouchableOpacity>
-            </View> */}
             <TouchableOpacity style={s.buttonB} onPress={() => SignInNow()}>
                 <Text style={s.buttonT}>Login</Text>              
             </TouchableOpacity>

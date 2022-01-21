@@ -12,6 +12,9 @@ import BasicInfo from './src/screens/BasicInfo';
 import Investment from './src/screens/Investment'
 import AddFunds from './src/screens/AddFunds'
 import AddFunds2 from './src/screens/AddFunds2';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Payment from './src/screens/Payment';
+import Congratulations from './src/screens/Congratulations';
 
 const Stack = createStackNavigator();
 const App = () => {
@@ -22,12 +25,30 @@ const App = () => {
     setuserToken,
   }
 
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@storage_Key')
+      if(value !== null) {
+        setuserToken(value)
+      }
+    } catch(e) {
+      console.log(e)
+      setuserToken(null)
+    }
+  }
+
+  useEffect(() => {
+    const init = async () => {
+      getData()
+    };
+  }, []);
+
   return(
     <AppContext.Provider value={userSettings}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
         {
-         userToken == null ? (
+         userToken == null || userToken == undefined ? (
            <>
             <Stack.Screen name="AppIntro" component={AppIntro} />
             <Stack.Screen name="SignIn" component={SignIn} />
@@ -40,10 +61,11 @@ const App = () => {
             <Stack.Screen name="Investment" component={Investment} />
             <Stack.Screen name="AddFunds" component={AddFunds} />
             <Stack.Screen name="AddFunds2" component={AddFunds2} />
+            <Stack.Screen name="Payment" component={Payment} />
+            <Stack.Screen name="Congratulations" component={Congratulations} />
            </>
          )
         }
-          
         </Stack.Navigator>
       </NavigationContainer>
     </AppContext.Provider>

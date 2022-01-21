@@ -15,6 +15,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {SimpleAnimation} from 'react-native-simple-animations';
+import { moderateScale } from 'react-native-size-matters';
 
 const Investment = ({route, navigation}) => {
   const {age, purpose, invested, income, greenProduct, u_id} = route.params;
@@ -126,10 +127,11 @@ const Investment = ({route, navigation}) => {
       <View style={styles.topStrip}>
         <View style={{flexDirection: 'row', width: '100%'}}>
           <View>
+            
             <Image
-              source={require('../Assets/top.png')}
-              style={{width: 320, height: 50}}
-            />
+                source={require('../Assets/top.png')}
+                style={{width: 320, height: 50}}
+              />
           </View>
           <View
             style={{
@@ -148,10 +150,12 @@ const Investment = ({route, navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.innerContainer}>
           <View style={styles.logo}>
-            <Image
-              source={require('../Assets/investmentLogo.png')}
-              style={{width: 150, height: 150}}
-            />
+              <SimpleAnimation delay={500} duration={1000} fade staticType="in">
+                <Image
+                  source={require('../Assets/investmentLogo.png')}
+                  style={{width: 150, height: 150}}
+                />
+              </SimpleAnimation>
           </View>
 
           <View
@@ -159,7 +163,7 @@ const Investment = ({route, navigation}) => {
               width: '80%',
               alignSelf: 'center',
               flexDirection: 'row',
-              marginTop: 50,
+              marginTop: moderateScale(70),
             }}>
             <Text
               style={{
@@ -200,7 +204,7 @@ const Investment = ({route, navigation}) => {
             width: '80%',
             alignSelf: 'center',
             justifyContent: 'center',
-            marginTop: 140,
+            marginTop: moderateScale(100),
             flexDirection: 'row',
             marginBottom: 20,
           }}>
@@ -298,7 +302,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   logo: {
-    marginTop: 100,
+    marginTop: moderateScale(50),
     alignSelf: 'center',
   },
   topStrip: {

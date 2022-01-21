@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {
   View,
   Button,
@@ -19,6 +19,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useFocusEffect} from '@react-navigation/native';
 import AppContext from '../components/Appcontext/contextApi'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Profile({navigation}) {
 
@@ -27,13 +28,19 @@ export default function Profile({navigation}) {
   const [props, setProps] = useState(false);
 
   const LogoutFun = () => {
-    AppContexte.setuserToken(null)
+    
     setProps(true);
-    navigation.navigate('SignIn');
-    setTimeout(function () {
-      setProps(false);
-      navigation.navigate('SignIn');
-    }, 3000);
+    AppContexte.setuserToken(null);
+    AsyncStorage.removeItem('auth_token');
+    setTimeout(() => {
+      navigation.navigate('AppIntro');
+    }, 1000);
+    
+
+    // setTimeout(function () {
+    //   setProps(false);
+    //   navigation.navigate('SignIn');
+    // }, 3000);
   };
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>

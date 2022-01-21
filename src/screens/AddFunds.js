@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import s from '../style/style'
 // import Pie from 'react-native-pie';
 
 const AddFunds = ({route, navigation}) => {
@@ -149,7 +150,7 @@ const AddFunds = ({route, navigation}) => {
             padding: 25,
             borderRadius: 10,
             alignSelf: 'center',
-            marginTop: 10,
+            marginTop: 0,
             borderColor: 'white',
             borderWidth: 1,
           }}>
@@ -190,7 +191,7 @@ const AddFunds = ({route, navigation}) => {
         </View>
         <View
           style={{
-            width: '90%',
+            width: '80%',
             alignSelf: 'center',
             padding: 20,
             borderColor: 'white',
@@ -198,7 +199,7 @@ const AddFunds = ({route, navigation}) => {
             borderRadius: 10,
             borderWidth: 1,
             backgroundColor: 'white',
-            marginTop: 20,
+            marginTop: 10,
             borderColor: '#BC982A',
           }}>
           <Text
@@ -236,8 +237,8 @@ const AddFunds = ({route, navigation}) => {
           </Text>
         </View>
 
-        <View style={{width: '40%', alignSelf: 'center', marginBottom: 20}}>
-          <TouchableOpacity
+        <View style={{width: '40%', alignSelf: 'center', marginBottom: 40}}>
+          {/* <TouchableOpacity
             onPress={() => data_push()}
             style={{
               padding: 5,
@@ -278,8 +279,13 @@ const AddFunds = ({route, navigation}) => {
                 size={24}
               />
             </View>
+          </TouchableOpacity> */}
+          <TouchableOpacity style={s.buttonB} onPress={() => data_push()}>
+            <Text style={s.buttonT}>Continue</Text>              
           </TouchableOpacity>
         </View>
+
+        
       </ScrollView>
       {/* <View style={{ width: '100%', height: 60, position: 'absolute', bottom: 0, backgroundColor: '#2D2D62', justifyContent: 'center' }} >
                 <TouchableOpacity
