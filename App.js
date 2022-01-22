@@ -27,9 +27,11 @@ const App = () => {
 
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem('@storage_Key')
+      const value = await AsyncStorage.getItem('auth_token')
+      console.log(value,'value')
       if(value !== null) {
         setuserToken(value)
+        console.log(value,'value')
       }
     } catch(e) {
       console.log(e)
@@ -38,9 +40,8 @@ const App = () => {
   }
 
   useEffect(() => {
-    const init = async () => {
-      getData()
-    };
+    getData()
+    console.log('value')
   }, []);
 
   return(

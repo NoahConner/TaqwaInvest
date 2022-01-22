@@ -13,7 +13,9 @@ import {
     ContributionGraph,
     StackedBarChart
 } from "react-native-chart-kit";
+import { CircularProgressWithChild } from 'react-native-circular-progress-indicator';
 const screenWidth = Dimensions.get("window").width;
+import { moderateScale } from 'react-native-size-matters';
 
 
 const AddFunds2 = ({ route, navigation }) => {
@@ -69,6 +71,12 @@ const AddFunds2 = ({ route, navigation }) => {
     const data = {
         labels: ["Swim", "Bike", "Run", "Run", "Run"], // optional
         data: [0.4, 0.6, 0.8, 0.3, 0.4]
+    };
+
+    const props = {
+        activeStrokeWidth: moderateScale(11,0.1),
+        inActiveStrokeWidth: moderateScale(11,0.1),
+        inActiveStrokeOpacity: 0.2
     };
     return (
         <View style={styles.container} >
@@ -131,34 +139,50 @@ const AddFunds2 = ({ route, navigation }) => {
                 <View>
                     <View style={{ width: '90%', alignSelf: 'center' }} >
                         {/* <ScrollView> */}
-                        <View style={{ width: '100%', borderRadius: 20, alignItems: 'center',justifyContent:'center' }} >
-                            <ProgressChart
-                                data={data}
-                                width={screenWidth}
-                                height={220}
-                                strokeWidth={10}
-                                radius={42}
-                                chartConfig={{
-                                    backgroundColor: 'white',
-                                    backgroundGradientFrom: '#fff',
-                                    backgroundGradientTo: '#fff',
-                                    decimalPlaces: 2, // optional, defaults to 2dp
-                                    color: (opacity = 1) => `rgb(45, 45, 98,${opacity})`,
-                                    // labelColor: (opacity = 1) => `rgb(45, 45, 98, ${opacity})`,
-                                    style: {
-                                      borderRadius: 16,
-                                    },
-                                    propsForDots: {
-                                      r: '7',
-                                      strokeWidth: '0',
-                                      stroke: 'white',
-                                    },
-                                  }}
-                                hideLegend={true}
-                            />
+                        <View style={{ width: '100%', borderRadius: 20, alignItems: 'center', justifyContent: 'center' }} >
+                            <CircularProgressWithChild
+                                {...props}
+                                value={25}
+                                radius={moderateScale(130,0.1)}
+                                activeStrokeColor={'#EDB462'}
+                                inActiveStrokeColor={'#EDB462'}
+                            >
+                                <CircularProgressWithChild
+                                    {...props}
+                                    value={20}
+                                    radius={moderateScale(113,0.1)}
+                                    activeStrokeColor={'#CE7672'}
+                                    inActiveStrokeColor={'#CE7672'}
+                                >
+                                    <CircularProgressWithChild
+                                        {...props}
+                                        value={25}
+                                        radius={moderateScale(96,0.1)}
+                                        activeStrokeColor={'#544767'}
+                                        inActiveStrokeColor={'#544767'}
+                                    >
+                                        <CircularProgressWithChild
+                                            {...props}
+                                            value={25}
+                                            radius={moderateScale(79,0.1)}
+                                            activeStrokeColor={'#138085'}
+                                            inActiveStrokeColor={'#138085'}
+                                        >
+                                            <CircularProgressWithChild
+                                                {...props}
+                                                value={5}
+                                                radius={moderateScale(61,0.1)}
+                                                activeStrokeColor={'#DC8565'}
+                                                inActiveStrokeColor={'#DC8565'}
+                                            />
+
+                                        </CircularProgressWithChild>
+                                    </CircularProgressWithChild>
+                                </CircularProgressWithChild>
+                            </CircularProgressWithChild>
                         </View>
 
-                        <View style={{ width: '100%',  marginTop: 30, flexDirection: 'column', alignSelf: 'center' }} >
+                        <View style={{ width: '100%', marginTop: 30, flexDirection: 'column', alignSelf: 'center' }} >
                             <View style={styles.stocksContainer} >
                                 <View style={styles.stockName} >
                                     <Text style={{ fontSize: 15, fontFamily: 'OpenSans-Regular', color: '#EDB462' }} >
@@ -247,10 +271,10 @@ const AddFunds2 = ({ route, navigation }) => {
                         </View>
                     </View>
                 </View>
-                <View style={{marginBottom:40}}>
-                <TouchableOpacity style={s.buttonB} onPress={() => pushingData()}>
-                    <Text style={s.buttonT}>Continue</Text>              
-                </TouchableOpacity>
+                <View style={{ marginBottom: 40 }}>
+                    <TouchableOpacity style={s.buttonB} onPress={() => pushingData()}>
+                        <Text style={s.buttonT}>Continue</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>

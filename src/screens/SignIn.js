@@ -101,6 +101,7 @@ const SignIn = ({ navigation }) => {
         if (responseJson == true) {
           try {
             AsyncStorage.setItem('auth_token', data)
+            console.log(data)
           } catch (e) {
             // saving error
           }

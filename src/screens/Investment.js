@@ -150,7 +150,7 @@ const Investment = ({route, navigation}) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.innerContainer}>
           <View style={styles.logo}>
-              <SimpleAnimation delay={500} duration={1000} fade staticType="in">
+              <SimpleAnimation delay={700} duration={1000} fade staticType="in">
                 <Image
                   source={require('../Assets/investmentLogo.png')}
                   style={{width: 150, height: 150}}

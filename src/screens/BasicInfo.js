@@ -349,10 +349,30 @@ class BasicInfo extends Component {
         <View style={styles.container}>
           {this.state.loadingPortfolio == true ? (
             <Modal transparent={true} animationType={'slide'} visible={true}>
-              <View style={styles.modalBackground}>
+              <View style={{...styles.modalBackground,position:'relative'}}>
+                
+                <View style={{position:'absolute', top:40, left:20}}>
+                  <Text
+                    style={{
+                      color: '#2D2D62',
+                      fontFamily: 'OpenSans-Regular',
+                      fontSize: 20,
+                    }}>
+                    Alhamdulillah ...
+                  </Text>
+                  <Text
+                    style={{
+                      color: '#2D2D62',
+                      fontFamily: 'OpenSans-Regular',
+                      fontSize: 24,
+                    }}>
+                    Completed!
+                  </Text>
+                </View>
+
                 <Image
-                  source={require('../Assets/Taqwafinallogo.png')}
-                  style={{ width: '42%', height: '20%', marginBottom: 20 }}
+                  source={require('../../Assets/png/1.gif')}
+                  style={{ width: moderateScale(600,0.1), height: moderateScale(600,0.1), marginBottom: 20 }}
                 />
                 {/* <LineDotsLoader dotsNumber={4} color={'#2D2D62'} size={10} /> */}
                 <Text
@@ -361,9 +381,16 @@ class BasicInfo extends Component {
                     fontFamily: 'OpenSans-Regular',
                     fontSize: 16,
                     paddingTop: 14,
+                    position:'absolute',
+                    bottom:moderateScale(200,0.1)
                   }}>
                   Generating Your Portfolio
                 </Text>
+
+                <Image
+                  source={require('../Assets/bottom.png')}
+                  style={{ position:'absolute',bottom:0 }}
+                />
               </View>
             </Modal>
           ) : null}
@@ -418,122 +445,6 @@ class BasicInfo extends Component {
               />
               {this.pagination}
             </View>
-            {/* 
-            <Animated.View
-              style={[
-                styles.container1,
-                {
-                  marginLeft: this.state.fadeAnim,
-                },
-              ]}>
-              <Text
-                style={{fontSize: 19, color: '#3A215D', fontFamily: 'segoeui'}}>
-                What is your age group?
-              </Text>
-              <RadioButtonRN
-                data={this.state.data}
-                boxStyle={{borderWidth: 0, padding: 5, marginTop: 10}}
-                activeColor="green"
-                boxActiveBgColor="white"
-                box={false}
-                circleSize={12}
-                textStyle={{color: '#3A215D', marginLeft: 10}}
-                selectedBtn={e => this.switchFn(e.label, 1)}
-              />
-            </Animated.View>
-
-            <Animated.View
-              style={[
-                styles.container2,
-                {
-                  marginRight: this.state.fadeAnim2, 
-                },
-              ]}>
-              <Text
-                style={{fontSize: 19, color: '#3A215D', fontFamily: 'segoeui'}}>
-                Purpose of Investment?
-              </Text>
-              <RadioButtonRN
-                data={this.state.data2}
-                boxStyle={{borderWidth: 0, padding: 5, marginTop: 10}}
-                activeColor="green"
-                boxActiveBgColor="white"
-                box={false}
-                circleSize={12}
-                textStyle={{color: '#3A215D', marginLeft: 10}}
-                selectedBtn={e => this.switchFn(e.label, 2)}
-              />
-            </Animated.View>
-
-            <Animated.View
-              style={[
-                styles.container3,
-                {
-                  marginRight: this.state.fadeAnim3, 
-                },
-              ]}>
-              <Text
-                style={{fontSize: 19, color: '#3A215D', fontFamily: 'segoeui'}}>
-                Have you invested before?
-              </Text>
-              <RadioButtonRN
-                data={this.state.data3}
-                boxStyle={{borderWidth: 0, padding: 5, marginTop: 10}}
-                activeColor="green"
-                boxActiveBgColor="white"
-                box={false}
-                circleSize={12}
-                textStyle={{color: '#3A215D', marginLeft: 10}}
-                selectedBtn={e => this.switchFn(e.label, 3)}
-              />
-            </Animated.View>
-
-            <Animated.View
-              style={[
-                styles.container4,
-                {
-                  marginRight: this.state.fadeAnim4, 
-                },
-              ]}>
-              <Text
-                style={{fontSize: 19, color: '#3A215D', fontFamily: 'segoeui'}}>
-                What is your Annual Income?
-              </Text>
-              <RadioButtonRN
-                data={this.state.data4}
-                boxStyle={{borderWidth: 0, padding: 5, marginTop: 10}}
-                activeColor="green"
-                boxActiveBgColor="white"
-                box={false}
-                circleSize={12}
-                textStyle={{color: '#3A215D', marginLeft: 10}}
-                selectedBtn={e => this.switchFn(e.label, 4)}
-              />
-            </Animated.View>
-
-            
-            <Animated.View
-              style={[
-                styles.container5,
-                {
-                  marginRight: this.state.fadeAnim5, 
-                },
-              ]}>
-              <Text
-                style={{fontSize: 19, color: '#3A215D', fontFamily: 'segoeui'}}>
-                Do you want to invest in Green Products?
-              </Text>
-              <RadioButtonRN
-                data={this.state.data5}
-                boxStyle={{borderWidth: 0, padding: 5, marginTop: 10}}
-                activeColor="green"
-                boxActiveBgColor="white"
-                box={false}
-                circleSize={12}
-                textStyle={{color: '#3A215D'}}
-                selectedBtn={e => this.switchFn(e.label, 5)}
-              />
-            </Animated.View> */}
           </ScrollView>
           <View style={s.portImg}>
               <Image

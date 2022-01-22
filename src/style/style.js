@@ -25,6 +25,13 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         flex: 1
     },
+    alignCenter:{
+        alignItems:'center',
+        justifyContent:'center',
+        width:'100%',
+        height:moderateScale(ScreenHeight-180,0.1),
+        position:'relative',
+    },
     content: {
         width: '100%',
         marginTop: moderateScale(50, 0.1),
