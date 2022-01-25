@@ -151,7 +151,7 @@ const SignIn = ({ navigation }) => {
           source={require('../Assets/Taqwafinallogo.png')}
           style={styles.signInLogo}
         /> */}
-          <View style={{position:'absolute',top:80}}>
+          <View style={{position:'absolute',top:60}}>
             <Image
               source={require('../Assets/Taqwafinallogo.png')}
               style={styles.signInLogo}

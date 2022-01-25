@@ -9,6 +9,7 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
+import { moderateScale } from 'react-native-size-matters';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import s from '../style/style'
@@ -237,7 +238,7 @@ const AddFunds = ({route, navigation}) => {
           </Text>
         </View>
 
-        <View style={{width: '40%', alignSelf: 'center', marginBottom: 40}}>
+        <View style={{width: '40%', alignSelf: 'center', marginBottom: moderateScale(90,0.1)}}>
           {/* <TouchableOpacity
             onPress={() => data_push()}
             style={{
@@ -281,7 +282,7 @@ const AddFunds = ({route, navigation}) => {
             </View>
           </TouchableOpacity> */}
           <TouchableOpacity style={s.buttonB} onPress={() => data_push()}>
-            <Text style={s.buttonT}>Continue</Text>              
+            <Text style={s.buttonT}>Continue</Text>
           </TouchableOpacity>
         </View>
 

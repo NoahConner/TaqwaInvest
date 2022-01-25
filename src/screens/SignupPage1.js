@@ -286,6 +286,17 @@ const SignupPage1 = ({navigation}) => {
               )}
             </View>
             <Animated.View style={{width:'100%',height:2,backgroundColor:passStrength,opacity:opaxio}}></Animated.View>
+            <Text style={{color:passStrength}}>
+              {
+                passStrength == 'green' ? (
+                  'Strong'
+                ) : passStrength == 'red' ? (
+                  'Weak'
+                ) : passStrength == 'orange' ? (
+                  'Medium'
+                ) : null
+              }
+            </Text>
           </View>
 
           <View style={styles.infoContainer}>
@@ -396,14 +407,13 @@ const SignupPage1 = ({navigation}) => {
             style={{
               width: '60%',
               height: 100,
-              top: 50,
+              top: 20,
               alignSelf: 'center',
               flexDirection: 'row',
             }}>
             <Text style={{fontSize: 15,color:'#000'}}>Have an account?</Text>
             <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
               <Text style={{color: '#2D2D62', fontWeight: 'bold', fontSize: 16}}>
-                {' '}
                 Sign In
               </Text>
             </TouchableOpacity>

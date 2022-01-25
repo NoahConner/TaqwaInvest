@@ -44,7 +44,7 @@ const Portfolios = ({ route, navigation, userid }) => {
     return (
       <View style={s.portCard}>
         <View style={s.portFoluioTxt}>
-          {
+           {/*{
             item.renameToggle == false ? (
               <>
               <Text style={[s.portName,s.blueColor]}>{item.portName}</Text>
@@ -63,11 +63,11 @@ const Portfolios = ({ route, navigation, userid }) => {
               </>
             )
           }
-          {/*  */}
           
           <TouchableOpacity style={ !item.renameToggle ? s.editIconPort : s.editIconPorto} onPress={() => toggleFun(index, item.info_id)}>
             <FontAwesome5 name={ item.renameToggle == false ? 'edit' : 'save'} size={moderateScale(24, 0.1)} color={'#C8A12D'} />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
+          <Text style={[s.portName,s.blueColor]}>{item.portName}</Text>
         </View>
         <View style={s.portRound}>
           <View style={s.portRoundcirlce}>

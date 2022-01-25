@@ -271,7 +271,7 @@ const AddFunds2 = ({ route, navigation }) => {
                         </View>
                     </View>
                 </View>
-                <View style={{ marginBottom: 40 }}>
+                <View style={{ marginBottom: moderateScale(90,0.1) }}>
                     <TouchableOpacity style={s.buttonB} onPress={() => pushingData()}>
                         <Text style={s.buttonT}>Continue</Text>
                     </TouchableOpacity>

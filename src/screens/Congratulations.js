@@ -80,7 +80,7 @@ export default function Congratulations({ route, navigation }) {
                 style={{ width: moderateScale(200,0.1), height: moderateScale(200,0.1) }}
               />
             </Animated.View>
-            <Animated.View style={{transform:[{scale:logoAnime}], position:'absolute',left:moderateScale(110,0.1),top:moderateScale(20,0.1),opacity:taqwaAnime}}>
+            <Animated.View style={{transform:[{scale:logoAnime}], position:'absolute',left:moderateScale(120,0.1),top:moderateScale(20,0.1),opacity:taqwaAnime}}>
               <Logo/>
             </Animated.View>
             <Animated.View style={{position:'absolute',left:moderateScale(125,0.1),top:moderateScale(50,0.1),opacity:ticaAnime}}>

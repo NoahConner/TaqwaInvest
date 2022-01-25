@@ -355,6 +355,7 @@ const Payment = ({route, navigation}) => {
             alignSelf: 'center',
             height: 50,
             marginTop: 50,
+            marginBottom:90,
             backgroundColor: '#2D2D62',
             justifyContent: 'center',
             borderRadius: 20,
