@@ -146,19 +146,19 @@ const SignIn = ({ navigation }) => {
         </Modal>
       ) : null}
 
-      <ScrollView >
+      <ScrollView contentContainerStyle={{alignItems:'center'}}>
         {/* <Image
           source={require('../Assets/Taqwafinallogo.png')}
           style={styles.signInLogo}
         /> */}
-
-        <View style={{ position: 'relative',width:ScreenWidth,alignItems:'center',overflow:'hidden', minHeight:moderateScale(ScreenHeight-120)}}>
-          <View style={{position:'absolute',top:'8%'}}>
+          <View style={{position:'absolute',top:80}}>
             <Image
               source={require('../Assets/Taqwafinallogo.png')}
               style={styles.signInLogo}
             />
           </View>
+        <View style={{ position: 'relative',width:ScreenWidth,alignItems:'center',overflow:'hidden', minHeight:moderateScale(ScreenHeight-110)}}>
+          
           <View
             style={{
               width: '85%',

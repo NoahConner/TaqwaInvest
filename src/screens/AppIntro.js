@@ -101,6 +101,10 @@ const AppIntro = ({navigation}) => {
   const [arrowColor, setarrowColor] = useState('#30306a');
   const LightingT = useRef(new Animated.Value(0)).current;
   const LightingO = useRef(new Animated.Value(0)).current;
+
+  const HaveGoal = useRef(new Animated.Value(0)).current;
+  const WeOffer = useRef(new Animated.Value(0)).current;
+  const Artrowe = useRef(new Animated.Value(0)).current;
   // const [imgHe, setImgHe] = useState(260);
   // const [imgW, setImgW] = useState(276);
   const [showView, setShowView] = useState(false);
@@ -173,7 +177,6 @@ const AppIntro = ({navigation}) => {
       </Svg>
     )
   }
-
   const Lighting = () => {
     return (
       <Svg xmlns="http://www.w3.org/2000/svg" width="186.026" height="133.681" viewBox="0 0 186.026 133.681" strokeWidth={4}>
@@ -250,13 +253,33 @@ const AppIntro = ({navigation}) => {
     }).start();
   }
 
+
+
   const slideChange = (e) => {
     console.log(e)
     if (e == 1) {
       setTimeout(() => {
         boardAnim(-20, -18)
         setarrowColor('#AE8B2D')
-      }, 100);
+      }, 1400);
+      setTimeout(() => {
+        Animated.timing(WeOffer, {
+          toValue: 1,
+          duration: 700
+        }).start();
+      }, 200);
+      setTimeout(() => {
+        Animated.timing(HaveGoal, {
+          toValue: 1,
+          duration: 700
+        }).start();
+      }, 800);
+      setTimeout(() => {
+        Animated.timing(Artrowe, {
+          toValue: 1,
+          duration: 700
+        }).start();
+      }, 1100);
     }else if(e == 2){
       setTimeout(() => {
         lightanim(5,1)
@@ -292,18 +315,18 @@ const AppIntro = ({navigation}) => {
             }}></Animated.Image>
         )) ||
           (item.key == 2 && (
-            <View
+            <Animated.View
               style={{
                 position: 'absolute',
-                top:moderateScale(150,0.1)
+                top:moderateScale(150,0.1),
+                opacity:Artrowe 
               }}
             >
-              {/* <ArrowBoardImage /> */}
               <Board />
               <Animated.View style={{ position: 'absolute', top: arroweT, right: arroweR }}>
                 <Arrowe />
               </Animated.View>
-            </View>
+            </Animated.View>
           )) ||
           (item.key == 3 && (
             <View
@@ -330,7 +353,7 @@ const AppIntro = ({navigation}) => {
               width: windowWidth,
               alignItems: 'center',
             }}>
-            <Text
+            <Animated.Text
               style={{
                 fontSize: 24,
                 fontFamily: 'segoeui',
@@ -338,40 +361,62 @@ const AppIntro = ({navigation}) => {
                 width: '80%',
                 paddingVertical: 20,
                 color: '#2D2D62',
+                opacity:item.key == 2 ? HaveGoal : 1
               }}>
               {item.title}
-            </Text>
-            <Text
+            </Animated.Text>
+            <Animated.Text
               style={{
                 fontSize: 16,
                 fontFamily: 'segoeui',
                 width: '90%',
                 textAlign: 'center',
                 color: '#B38748',
+                opacity : item.key == 2 ? WeOffer : 1
               }}>
               {item.text}
-            </Text>
+            </Animated.Text>
           </View>
         ) : null}
       </View>
     );
   };
+  // const _renderNextButton = () => {
+  //   return (
+  //     <TouchableOpacity style={[styles.buttonCircle, showView ? null : s.dnono]}>
+  //         <AntDesign name="right" color="rgba(255, 255, 255, .9)" size={24} />
+  //       </TouchableOpacity>
+  //   );
+  // };
+  // const _renderDoneButton = () => {
+  //   return (
+  //     <View style={styles.buttonCircle} onPress={() => navigation.navigate('SignIn')}>
+  //       <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+  //         <Icon name="md-checkmark" color="rgba(255, 255, 255, .9)" size={24} />
+  //       </TouchableOpacity>
+  //     </View>
+  //   );
+  // };
   const _renderNextButton = () => {
     return (
-      <View style={[styles.buttonCircle, showView ? null : s.dnono]} >
-        <TouchableOpacity>
-          <AntDesign name="right" color="rgba(255, 255, 255, .9)" size={24} />
-        </TouchableOpacity>
+      <View style={styles.buttonCircle}>
+        <AntDesign
+          name="right"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+        />
       </View>
     );
   };
   const _renderDoneButton = () => {
     return (
-      <View style={styles.buttonCircle}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-          <Icon name="md-checkmark" color="rgba(255, 255, 255, .9)" size={24} />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={styles.buttonCircle}  onPress={() => navigation.navigate('SignIn')}>
+        <Icon
+          name="md-checkmark"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+        />
+      </TouchableOpacity>
     );
   };
 
