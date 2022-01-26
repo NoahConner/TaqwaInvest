@@ -8381,6 +8381,13 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-native-animate-number@^0.1.2":
+  "integrity" "sha1-1BxaeE4F+deI2vv3sVhYTGXoz0c="
+  "resolved" "https://registry.npmjs.org/react-native-animate-number/-/react-native-animate-number-0.1.2.tgz"
+  "version" "0.1.2"
+  dependencies:
+    "react-timer-mixin" "^0.13.3"
+
 "react-native-animated-pie@^0.0.2":
   "integrity" "sha512-bJ8UMbWO1Mp0c/ZfXGodWTLHL2qnUBLdIMRJHN7cvEnDKfFUNnAaLatDFhI0EtjKkS4r0AkGqJVd5bptl+isYA=="
   "resolved" "https://registry.npmjs.org/react-native-animated-pie/-/react-native-animated-pie-0.0.2.tgz"
@@ -8495,6 +8502,11 @@
   "version" "8.0.4"
   dependencies:
     "lodash" "^4.17.15"
+
+"react-native-raw-bottom-sheet@^2.2.0":
+  "integrity" "sha512-qL4JKIqvbcVxbkKzeh51hjV7suoJN3ouxzvLmOg0FBUV1yiJAfEbacjQdtRCI6+OU5pyGFBIifLsTXcFDwHggg=="
+  "resolved" "https://registry.npmjs.org/react-native-raw-bottom-sheet/-/react-native-raw-bottom-sheet-2.2.0.tgz"
+  "version" "2.2.0"
 
 "react-native-reanimated@^2.0.0-alpha.5", "react-native-reanimated@^2.2.4", "react-native-reanimated@>= 1.0.0", "react-native-reanimated@>=2.2.0":
   "integrity" "sha512-nzjVqwkB8eeyPKT2KoiA9EEz17ZMFSGMoOTC17Z9b5nE2Z4ZHjHM5EKhY0TlwzXFUuJAE9PhOfxF0wIO/maZSA=="
@@ -8713,7 +8725,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.2"
 
-"react-timer-mixin@^0.13.2":
+"react-timer-mixin@^0.13.2", "react-timer-mixin@^0.13.3":
   "integrity" "sha512-4+ow23tp/Tv7hBM5Az5/Be/eKKF7DIvJ09voz5LyHGQaqqz9WV8YMs31eFvcYQs7d451LSg7kDJV70XYN/Ug/Q=="
   "resolved" "https://registry.npmjs.org/react-timer-mixin/-/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"

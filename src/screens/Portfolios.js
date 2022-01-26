@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import {
   View,
@@ -19,9 +19,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { TextInput } from 'react-native-gesture-handler';
 import { useFocusEffect } from '@react-navigation/native';
 import s from '../style/style';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import { moderateScale } from 'react-native-size-matters';
 import Carousel from 'react-native-snap-carousel';
+import RBSheet from "react-native-raw-bottom-sheet";
 
 const Portfolios = ({ route, navigation, userid }) => {
   const [rename, setRename] = useState('');
@@ -44,7 +44,7 @@ const Portfolios = ({ route, navigation, userid }) => {
     return (
       <View style={s.portCard}>
         <View style={s.portFoluioTxt}>
-           {/*{
+          {/*{
             item.renameToggle == false ? (
               <>
               <Text style={[s.portName,s.blueColor]}>{item.portName}</Text>
@@ -67,7 +67,8 @@ const Portfolios = ({ route, navigation, userid }) => {
           <TouchableOpacity style={ !item.renameToggle ? s.editIconPort : s.editIconPorto} onPress={() => toggleFun(index, item.info_id)}>
             <FontAwesome5 name={ item.renameToggle == false ? 'edit' : 'save'} size={moderateScale(24, 0.1)} color={'#C8A12D'} />
           </TouchableOpacity> */}
-          <Text style={[s.portName,s.blueColor]}>{item.portName}</Text>
+          <Text style={[s.portName, s.blueColor]}>{item.portName}</Text>
+          
         </View>
         <View style={s.portRound}>
           <View style={s.portRoundcirlce}>
@@ -94,6 +95,9 @@ const Portfolios = ({ route, navigation, userid }) => {
             <Text style={[s.amountAed, s.blueColor, s.capital]}>{item.current_status}</Text>
           </View>
         </View>
+        <TouchableOpacity style={{position:'absolute', top:moderateScale(25), right:moderateScale(10)}} onPress={() => refRBSheet.current.open()}>
+            <Entypo name='dots-three-vertical' size={moderateScale(24)} color={'#00205b'} />
+          </TouchableOpacity>
       </View>
     );
   }
@@ -258,7 +262,9 @@ const Portfolios = ({ route, navigation, userid }) => {
       });
   };
 
-  const { width: screenWidth } = Dimensions.get('window')
+  const { width: screenWidth } = Dimensions.get('window');
+  const refRBSheet = useRef();
+
   return (
     <View style={styles.center}>
       <StatusBar
@@ -297,12 +303,40 @@ const Portfolios = ({ route, navigation, userid }) => {
         <Carousel
           sliderWidth={screenWidth}
           sliderHeight={screenWidth}
-          itemWidth={moderateScale(screenWidth - 100,0.1)}
+          itemWidth={moderateScale(screenWidth - 80, 0.1)}
           data={portfolioinfo}
           renderItem={_renderItem}
           parallaxFactor={0.6}
         />
       </View>
+      <RBSheet
+        ref={refRBSheet}
+        closeOnDragDown={true}
+        closeOnPressMask={true}
+        customStyles={{
+            wrapper: {
+                backgroundColor: "#0000009e",
+            },
+            draggableIcon: {
+                backgroundColor: "#E6E6E6"
+            },
+            container:{
+                backgroundColor: "#fff",
+                borderTopEndRadius:20,
+                borderTopStartRadius:20
+            }
+        }}
+        height={moderateScale(140)}
+      >
+        <View style={{width:'100%'}}>
+          <TouchableOpacity style={s.texterD}>
+            <Text style={s.texter}>Edit</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={s.texterD}>
+            <Text style={s.texter}>Set as default</Text>
+          </TouchableOpacity>
+        </View>
+      </RBSheet>
     </View>
   );
 };

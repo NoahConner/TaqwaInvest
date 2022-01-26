@@ -242,5 +242,13 @@ export default StyleSheet.create({
         fontSize: 16,
         fontFamily: 'OpenSans-Bold',
         color: 'white',
+    },
+    texter:{
+        textAlign:'center',
+        fontSize:18,
+        color:'#00205b',
+    },
+    texterD:{
+        padding:10
     }
 });

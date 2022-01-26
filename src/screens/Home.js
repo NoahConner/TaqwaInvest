@@ -125,7 +125,7 @@ const Home = ({ navigation }) => {
             <View style={s.ttextCircle}>
               <Text style={[s.blueColor, s.total]}>Total Value</Text>
               
-              <Text style={[s.blueColor, s.aed]}>AED <AnimateNumber value={2034} interval={8} countBy={2} timing="linear" steps={15} /></Text>
+              <Text style={[s.blueColor, s.aed]}>AED <AnimateNumber value={2034} interval={2} countBy={14} timing="linear" steps={20} /></Text>
             </View>
           </View>
           <View style={s.pGain}>
