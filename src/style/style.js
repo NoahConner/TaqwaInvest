@@ -139,7 +139,7 @@ export default StyleSheet.create({
         alignItems:'center',
         borderWidth:1,
         borderColor:'#BC982A',
-        width:moderateScale(300,0.1),
+        width:moderateScale(280,0.1),
         borderRadius:moderateScale(30),
         paddingVertical:moderateScale(35,0.1)
     },

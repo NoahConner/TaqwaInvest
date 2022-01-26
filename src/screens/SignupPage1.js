@@ -432,15 +432,15 @@ const styles = StyleSheet.create({
   signInLogo: {
     height: 140,
     width: 150,
-    marginBottom: 10,
-    marginTop: '15%',
+    marginBottom: 5,
+    marginTop: '10%',
     alignSelf: 'center',
   },
   infoContainer: {
     top: 20,
     width: '100%',
     alignSelf: 'center',
-    marginBottom: 40,
+    marginBottom: 20,
   },
   infoText: {
     fontFamily: 'Raleway-Medium',

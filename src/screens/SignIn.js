@@ -71,6 +71,7 @@ const SignIn = ({ navigation }) => {
             responseJson[0].first_name + ' ' + responseJson[0].last_name;
           global.Fname = responseJson[0].first_name;
           global.user_id = responseJson[0].user_id;
+          AsyncStorage.setItem('user_id', responseJson[0].user_id)
           setProps(false);
           // console.log(responseJson[0].user_id)
           check_basic_info(responseJson[0].user_id,responseJson[0]);
@@ -315,14 +316,14 @@ const styles = StyleSheet.create({
     height: 140,
     width: 150,
     marginBottom: 10,
-    marginTop: '15%',
+    marginTop: '10%',
     alignSelf: 'center',
   },
   infoContainer: {
     top: 20,
     width: '100%',
     alignSelf: 'center',
-    marginBottom: 40,
+    marginBottom: 20,
     // backgroundColor:"black"
   },
   infoText: {

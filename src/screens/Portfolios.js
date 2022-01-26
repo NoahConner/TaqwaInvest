@@ -22,6 +22,7 @@ import s from '../style/style';
 import { moderateScale } from 'react-native-size-matters';
 import Carousel from 'react-native-snap-carousel';
 import RBSheet from "react-native-raw-bottom-sheet";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Portfolios = ({ route, navigation, userid }) => {
   const [rename, setRename] = useState('');
@@ -30,19 +31,27 @@ const Portfolios = ({ route, navigation, userid }) => {
   const [refreshStat, setrefreshStat] = useState(false);
   const [user_id, setuserid] = useState(global.user_id);
   useEffect(() => {
+    // setuserid(AsyncStorage.getItem('user_id'))
     portfolioFetch();
     refreshFun();
+    // console.log(AsyncStorage.getItem('user_id'))
   }, []);
 
-  const refreshFun = () => {
+  const refreshFun = async() => {
     setrefreshStat(true);
     portfolioFetch();
     setrefreshStat(false);
+    try{
+      let vh = await AsyncStorage.getItem('user_id');
+      console.log(vh,'oooopp')
+    }catch(err){
+      console.log(err)
+    }
   };
 
   const _renderItem = ({ item, index }) => {
     return (
-      <View style={s.portCard}>
+      <View style={s.makingCardPort}>
         <View style={s.portFoluioTxt}>
           {/*{
             item.renameToggle == false ? (
@@ -153,7 +162,6 @@ const Portfolios = ({ route, navigation, userid }) => {
         responseJson.forEach(function (element) {
           element.renameToggle = false;
         });
-        console.log(responseJson);
         setportfolioinfo([]);
         setportfolioinfo(portfolioinfo => [...portfolioinfo, ...responseJson]);
       })
@@ -179,7 +187,6 @@ const Portfolios = ({ route, navigation, userid }) => {
     )
       .then(response => response.json())
       .then(responseJson => {
-        console.log(responseJson);
       })
       .catch(err => {
         console.error(err);
@@ -201,8 +208,6 @@ const Portfolios = ({ route, navigation, userid }) => {
     )
       .then(response => response.json())
       .then(responseJson => {
-        console.log('responseJson');
-        console.log(responseJson);
 
         var temp = responseJson[index].info_id;
         updatePortStatus(temp);
@@ -230,8 +235,6 @@ const Portfolios = ({ route, navigation, userid }) => {
     )
       .then(response => response.json())
       .then(responseJson => {
-        console.log('responseJson statusactive');
-        console.log(responseJson);
       })
       .catch(err => {
         console.error(err);
@@ -254,8 +257,7 @@ const Portfolios = ({ route, navigation, userid }) => {
     )
       .then(response => response.json())
       .then(responseJson => {
-        console.log('responseJson Update');
-        console.log(responseJson);
+
       })
       .catch(err => {
         console.error(err);
@@ -303,7 +305,7 @@ const Portfolios = ({ route, navigation, userid }) => {
         <Carousel
           sliderWidth={screenWidth}
           sliderHeight={screenWidth}
-          itemWidth={moderateScale(screenWidth - 80, 0.1)}
+          itemWidth={moderateScale(screenWidth - 100, 0.1)}
           data={portfolioinfo}
           renderItem={_renderItem}
           parallaxFactor={0.6}

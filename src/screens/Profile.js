@@ -101,7 +101,7 @@ export default function Profile({navigation}) {
             style={{width: 86, height: 86, marginBottom: 10, marginRight: 10}}
           />
           <View>
-            <Text style={{fontFamily: 'OpenSans-Bold', fontSize: 17}}>
+            <Text style={{fontFamily: 'OpenSans-Bold', fontSize: 17,color:'#666', textAlign:'center'}}>
               {global.name}
             </Text>
             <Text
@@ -109,6 +109,8 @@ export default function Profile({navigation}) {
                 fontFamily: 'OpenSans-Regular',
                 fontSize: 14,
                 marginTop: 10,
+                color:'#666',
+                textAlign:'center'
               }}>
               {global.email}
             </Text>
@@ -122,9 +124,9 @@ export default function Profile({navigation}) {
               justifyContent: 'space-around',
               marginTop: 20,
             }}>
-            <TouchableOpacity
+            <View
               onPress={() => navigation.navigate('AccountInfo')}
-              style={styles.buttonStyle}>
+              style={{...styles.buttonStyle,opacity:0.6}} pointerEvents="none">
               <View>
                 <Entypo
                   name={'user'}
@@ -142,8 +144,8 @@ export default function Profile({navigation}) {
                   Account
                 </Text>
               </View>
-            </TouchableOpacity>
-            <TouchableOpacity
+            </View>
+            <View
               style={{
                 width: '30%',
                 height: 100,
@@ -152,6 +154,7 @@ export default function Profile({navigation}) {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: 20,
+                opacity:0.6
               }}>
               <View>
                 <Ionicons
@@ -170,7 +173,7 @@ export default function Profile({navigation}) {
                   Settings
                 </Text>
               </View>
-            </TouchableOpacity>
+            </View>
           </View>
           <View
             style={{
@@ -178,7 +181,7 @@ export default function Profile({navigation}) {
               justifyContent: 'space-around',
               marginTop: 20,
             }}>
-            <TouchableOpacity style={styles.buttonStyle}>
+            <View style={{...styles.buttonStyle,opacity:0.6}}>
               <View>
                 {/* <Entypo name={'user'} color={"#2D2D62"} size={30} style={{ alignSelf: 'center' }} /> */}
                 <Image
@@ -195,15 +198,15 @@ export default function Profile({navigation}) {
                   Learn
                 </Text>
               </View>
-            </TouchableOpacity>
+            </View>
           </View>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-around',
               marginTop: 20,
-            }}>
-            <TouchableOpacity style={styles.buttonStyle}>
+            }} >
+            <View style={{...styles.buttonStyle, opacity:0.6}}>
               <View>
                 <MaterialIcons
                   name={'support-agent'}
@@ -221,7 +224,7 @@ export default function Profile({navigation}) {
                   Support
                 </Text>
               </View>
-            </TouchableOpacity>
+            </View>
             <TouchableOpacity
               onPress={() => LogoutFun()}
               style={{
