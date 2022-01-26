@@ -100,18 +100,18 @@ const SignIn = ({ navigation }) => {
         console.log(responseJson);
         if (responseJson == true) {
           try {
-            AsyncStorage.setItem('auth_token', data)
-            console.log(data)
+            AsyncStorage.setItem('auth_token', JSON.stringify(data))
+            console.log(JSON.stringify(data),'dataa')
           } catch (e) {
             // saving error
           }
           setProps(false);
           AppContexte.setuserToken('null')
-          setTimeout(() => {
-            navigation.replace('BottomTabNavigator', {
-              u_id: us_id,
-            });
-          }, 500);
+          // setTimeout(() => {
+          //   navigation.replace('BottomTabNavigator', {
+          //     u_id: us_id,
+          //   });
+          // }, 500);
         } else {
           setProps(false);
           navigation.replace('BasicInfo', {
@@ -151,7 +151,7 @@ const SignIn = ({ navigation }) => {
           source={require('../Assets/Taqwafinallogo.png')}
           style={styles.signInLogo}
         /> */}
-          <View style={{position:'absolute',top:60}}>
+          <View style={{position:'absolute',top:60,zIndex:1}}>
             <Image
               source={require('../Assets/Taqwafinallogo.png')}
               style={styles.signInLogo}

@@ -27,7 +27,8 @@ import {
 import { moderateScale } from 'react-native-size-matters';
 import s from '../style/style'
 import { Circle, Svg, G, Path } from 'react-native-svg';
-import AnimateNumber from 'react-native-animate-number'
+import AnimateNumber from 'react-native-animate-number';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -124,7 +125,7 @@ const Home = ({ navigation }) => {
             <View style={s.ttextCircle}>
               <Text style={[s.blueColor, s.total]}>Total Value</Text>
               
-              <Text style={[s.blueColor, s.aed]}>AED <AnimateNumber value={2034} interval={8} countBy={1} timing="linear" steps={10} /></Text>
+              <Text style={[s.blueColor, s.aed]}>AED <AnimateNumber value={2034} interval={8} countBy={2} timing="linear" steps={15} /></Text>
             </View>
           </View>
           <View style={s.pGain}>
